@@ -3,6 +3,11 @@ package com.initproject;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.oblador.vectoricons.VectorIconsPackage;
+import org.devio.rn.splashscreen.SplashScreenReactPackage;
+import cl.json.RNSharePackage;
+import com.wix.interactable.Interactable;
+import com.imagepicker.ImagePickerPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -22,7 +27,12 @@ public class MainApplication extends Application implements ReactApplication {
     @Override
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
-          new MainReactPackage()
+          new MainReactPackage(),
+            new VectorIconsPackage(),
+            new SplashScreenReactPackage(),
+            new RNSharePackage(),
+            new Interactable(),
+            new ImagePickerPackage()
       );
     }
 
