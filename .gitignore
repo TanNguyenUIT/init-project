@@ -1,3 +1,61 @@
-node_modules/**/*
-.expo/*
-npm-debug.*
+# OSX
+#
+.DS_Store
+
+# Xcode
+#
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
+project.xcworkspace
+
+# Android/IJ
+#
+*.iml
+.idea
+.gradle
+local.properties
+
+# node.js
+#
+node_modules/
+npm-debug.log
+
+# yarn
+yarn-error.log
+
+# BUCK
+buck-out/
+\.buckd/
+android/app/libs
+android/keystores/debug.keystore
+ios/Pods
+
+.importjs.js
+index.ios.jsbundle.map
+index.ios.jsbundle
+index.android.jsbundle.map
+index.android.jsbundle
+index.android.jsbundle.meta
+.ruby-version
+.ruby-gemset
+Builds
+*/fastlane/report.xml
+*/fastlane/Preview.html
+*/fastlane/screenshots
+
+# Bundle artifact
+*.jsbundle

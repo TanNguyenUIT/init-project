@@ -1,19 +1,39 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Provider, connect } from 'react-redux';
+import { compose } from 'recompose';
+import { addNavigationHelpers } from 'react-navigation';
+import PropTypes from 'prop-types';
+import store, { addListener } from './redux/createStore';
+import RootNavigator from './navigators/rootNavigator';
 
-const App = () => (
-  <View style={styles.container}>
-    <Text>Open up App.js to start working on your app!</Text>
-  </View>
+const App = ({ dispatch, nav }) => (
+  <RootNavigator
+    navigation={addNavigationHelpers({
+      dispatch,
+      state: nav,
+      addListener,
+    })}
+  />
 );
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+App.propTypes = {
+  dispatch: PropTypes.func,
+  nav: PropTypes.object,
+};
 
-export default App;
+const HOCApp = compose(
+  connect(
+    state => ({
+      nav: state.nav,
+    }),
+    {},
+  ),
+)(App);
+
+const WrapApp = () => (
+  <Provider store={store}>
+    <HOCApp />
+  </Provider>
+);
+
+export default WrapApp;
